@@ -1,0 +1,179 @@
+<apex:page id="ManualUsuario" docType="html-5.0" lightningStylesheets="true">
+
+    <style type="text/css">
+        p{
+        width:100%;
+        text-align:justify;
+        }
+
+        a:link:active, a:visited:active {
+        color: (internal value);
+        }
+            
+        body{
+        width:100%;
+        }
+    </style>
+    
+     <head>
+        <div id="Titulo" style="text-align:center;font: Arial; font-size: 20pt; width:100%;">
+            <br />
+            <center><b>MANUAL DE USUARIO</b></center>
+            Bienvenido al sistema de solicitudes de reparación o mantenimiento FalabellaRoll.
+            <br />     
+            <br /> 
+            <br /> 
+        </div>
+    </head>
+    <apex:define name="body" >
+        <div style="text-align:justify;font:Arial; font-size: 13pt; width:98%;">
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Solicitudes Abiertas" columns="1">
+                    <div style="text-align:justify;font:Arial; font-size: 13pt;margin-right: 10px; width:100%;" >
+                        <apex:image url="{!URLFOR($Resource.Manual_Usuario, '/Solicitudes_abiertas.png')}" style="border: 10pt solid #cfd1d3; width: 90%;"/>                                                                    
+                        
+                        <br />
+                        <p>
+                        Desde el menú superior puedes acceder a "Solicitudes Abiertas":
+                        Al seleccionar la opción del menú el sistema le mostrará el listado de sus solicutudes que aun no están cerradas. 
+                        </p>
+                        <p>Esta lista Contiene los siguientes campos:</p>
+                        <ol>
+                            <p>
+                                <li>Número del caso.</li>
+                                <li>Nombre del contacto.</li>
+                                <li>Asunto.</li>
+                                <li>Estado.</li>
+                                <li>Prioridad.</li>
+                                <li>Fecha/Hora de apertura.</li>
+                            </p>
+                        </ol>
+                        <p>Se tienen las siguientes acciones:</p>
+                        <ol>
+                            <p>
+                                <li>Nuevo: Permite crear una nueva solicitud.</li>
+                                <li>Buscar en este lista: Le permite buscar las lista que tengan el valor ingresado, ya sea en su número del caso,
+                                    asunto,estado y prioridad.</li>
+                                <li>Modificar: Permite modificar la solicitud</li>
+                                <li>Eliminar: Permite eliminar la solicitud.</li>
+                                <li>Cambiar propietario: Le permite asignar esta solicitud a otra persona del área técnica.</li>
+                            </p>
+                        </ol>                       
+                    </div>   
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Nueva Solicitud" columns="1">
+                    <div style="text-align:justify;font:Arial; font-size: 13pt;margin-right: 10px; width:100%;" >
+                         <apex:image url="{!URLFOR($Resource.Manual_Usuario, '/Nuevo_caso.png')}" style="border: 10pt solid #cfd1d3; width: 50%;"/>                                                                    
+
+                        <br />
+                        <p>
+                        Se puede acceder a este funcionalidad desde:
+                        - Botón "Nuevo", dentro de la lista de solicitudes
+                        - Botón "Nueva solicitud", dentro del home(Pantalla inicial).    
+                        </p>
+                        <p>El sistema le presenta el formulario para crear una solicitud.</p>
+                        <ol>
+                            <p>
+                                <li>Ingrese los datos solicitados y seleccione el botón "Guardar"</li>
+                                <li>La opción seleccionar "Guardar y Nuevo", graba la información registrada en el formulario y abre un nuevo
+                                formulario en blanco para seguir registrando solicitudes.</li>
+                                <li>Seleccione la opción "Cancelar" en el momento que requiera que no se guarde la solicitud.</li>
+                                <li>El formulario de creación le permite tambien indicar si requiere enviar una notificación al contacto, al crear la solicitud.</li>  
+                            </p>
+                        </ol>                                                
+                    </div>   
+                </apex:pageBlockSection>
+            </apex:pageBlock>            
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Modificar Solicitud" columns="1">
+                    <div style="text-align:justify;font:Arial; font-size: 13pt;margin-right: 10px; width:100%;" >
+                        <apex:image url="{!URLFOR($Resource.Manual_Usuario, '/Modificar_caso.png')}" style="border: 10pt solid #cfd1d3; width: 50%;"/>                                                                  
+
+                        <br />
+                        <p>
+                        Se puede acceder a este funcionalidad desde:
+                        - Acción "Modificar" del registro visualizado desde la lista de solicitudes.
+                        - Botón "Modificar", dentro de la pantalla inicial.    
+                        </p>
+                        <p>El sistema le presenta el formulario para modificar una solicitud.</p>
+                        <ol>
+                            <p>
+                                <li>Actualice la información de la solicitud y seleccione el botón "Guardar"</li>
+                                <li>La opción seleccionar "Guardar y Nuevo", graba la información actualizada en el formulario y abre un nuevo
+                                formulario en blanco para seguir registrando solicitudes.</li>
+                                <li>Seleccione la opción "Cancelar" en el momento que requiera que no se guarde la solicitud.</li>
+                                <li>El formulario de modificación le permite tambien indicar si requiere enviar una notificación al contacto, al crear la solicitud.</li>  
+                            </p>
+                        </ol>                                                
+                    </div>   
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:pageBlock >
+            <apex:pageBlockSection title="Todas las solicitudes Abiertas" columns="1">
+                    <div style="text-align:justify;font:Arial; font-size: 13pt;margin-right: 10px; width:100%;" >
+                        <apex:image url="{!URLFOR($Resource.Manual_Usuario, '/Todas_solicitudes_abiertas.png')}" style="border: 10pt solid #cfd1d3; width: 90%;"/>                                                                    
+                        <br />
+                        <p>
+                        Desde el menú superior puedes acceder a "Todas las solicitudes Abiertas":
+                        Al seleccionar la opción del menú el sistema le mostrará el listado de todas las solicutudes que aun no están cerradas, asociadas a usted o a otras personas para su revisión. 
+                        </p>
+                        <p>Esta lista Contiene los siguientes campos:</p>
+                        <ol>
+                            <p>
+                                <li>Número del caso.</li>
+                                <li>Nombre del contacto.</li>
+                                <li>Asunto.</li>
+                                <li>Estado.</li>
+                                <li>Prioridad.</li>
+                                <li>Fecha/Hora de apertura.</li>
+                            </p>
+                        </ol>
+                        <p>Se tienen las siguientes acciones:</p>
+                        <ol>
+                            <p>
+                                <li>Nuevo: Permite crear una nueva solicitud.</li>
+                                <li>Buscar en este lista: Le permite buscar las lista que tengan el valor ingresado, ya sea en su número del caso,
+                                    asunto,estado y prioridad.</li>
+                                <li>Modificar: Permite modificar la solicitud</li>
+                                <li>Eliminar: Permite eliminar la solicitud.</li>
+                                <li>Cambiar propietario: Le permite asignar esta solicitud a otra persona del área técnica.</li>
+                            </p>
+                        </ol>                       
+                    </div>   
+                </apex:pageBlockSection>
+                </apex:pageBlock>
+                <apex:pageBlock >
+                <apex:pageBlockSection title="Reportes" columns="1">
+                    <div style="text-align:justify;font:Arial; font-size: 13pt;margin-right: 10px; width:100%;" >
+                         <apex:image url="{!URLFOR($Resource.Manual_Usuario, '/Dashboard.png')}" style="border: 10pt solid #cfd1d3; width: 70%;"/>                                                                    
+                        <br />
+                        <p>
+                        Desde la pantalla inicial puede acceder al panel de solicitudes:
+                        </p>
+                        <p>Este Panel cuenta con los siguientes reportes</p>
+                        <ol>
+                            <p>
+                                <li>Solicitudes por prioridad: Este reporte le muestra sus solicitudes abiertas agrupandolas por prioridad.</li>
+                                <li>Solicitudes Antiguas: Este reporte le muestra sus solicitudes abiertas agrupandolas por antiguedad.</li>                           
+                            </p>
+                        </ol>
+                        <p>En estos reportes usted puede:</p>
+                        <ol>
+                            <p>
+                                <li>Ver informe: Le muestra el detalle del informe.</li>
+                                Dentro del detalle del informe, usted puede.
+                                <li>Buscar: Buscar información especifica en el reporte</li>
+                                <li>Filtrar: Modificar los filtros del reporte.</li>
+                                <li>Modificar - Exportar: Exportar el reporte a excel.</li>
+                            </p>
+                        </ol> 
+                         <apex:image url="{!URLFOR($Resource.Manual_Usuario, '/Detalle_informe.png')}" style="border: 10pt solid #cfd1d3; width: 90%;"/>                                                                    
+                        
+                    </div>   
+                </apex:pageBlockSection>
+               </apex:pageBlock>     
+        </div>
+    </apex:define> 
+</apex:page>

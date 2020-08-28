@@ -1,0 +1,29 @@
+trigger MaintenanceRequest on Case (after update) {
+    //Se crea el mapa para almacenar las solicitudes 
+    //Que cumplen con los requisitos 
+    //Para crear una nueva solicitud.
+    Map<Id, Case> casesToEvaluate = new Map<Id, Case>();
+    Boolean crearSolicitud= false;
+    //Solo se evalua si se va crear una nueva solicitud
+    //Cuando el tipo de caso es Reparación o rutina de mantenimiento
+    //y que se este cambiando el estado del caso.
+    if(Trigger.isAfter && Trigger.isUpdate){
+        for(Case maintenance : Trigger.new){
+        	// Se valida si el tipo de solicitud es Reparación o Rutina de mantenimiento
+            if((maintenance.Type.contains('Repair') || maintenance.Type.contains('Routine Maintenance'))
+               && maintenance.Status == 'Closed'){//Se valida si su estado es cerrada
+                casesToEvaluate.put(maintenance.Id,maintenance);//Se agrega al mapa el id y el caso para tomar su datos en la nueva solicitud
+                                                                //Y no requerir consultarlo nuevamente.
+                crearSolicitud = true;//Si alguna cumple los requisitos
+            }
+        }       
+    }
+    // Si existen solicutudes a crear
+    // Se hace el llamado a la clase que creara los nuevos mantenimientos
+    // Con el mapa de los casos que se usaran como base para crear los nuevos
+    if(crearSolicitud){
+       MaintenanceRequestHelper.updateWorkOrders(casesToEvaluate);  
+    }
+    
+       
+}
